@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: linkedin_api
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - GUNICORN_WORKERS=4
+      - GUNICORN_THREADS=2
+      - GUNICORN_TIMEOUT=600
+    deploy:
+      resources:
+        limits:
+          memory: 2G  # Prevent memory overload
+    networks:
+      - api_network
+
+networks:
+  api_network:
+    driver: bridge

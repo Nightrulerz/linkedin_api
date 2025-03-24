@@ -1,0 +1,8 @@
+selenium
+requests
+webdriver-manager
+tenacity
+selenium-stealth
+flask[async]
+curl-cffi
+gunicorn
